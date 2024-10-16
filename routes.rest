@@ -1,0 +1,115 @@
+// LOCALHOST
+### Get all authors
+GET http://localhost:3000/authors
+
+
+### Get author by id
+GET http://localhost:3000/authors/670f14a7ab685e8ea9e9f46c
+
+
+### Create author
+POST http://localhost:3000/authors HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Stephen",
+    "lastName": "King",
+    "birthday": "21/09/47",
+    "favoriteGenders": [
+      "Horror",
+      "Fantasy",
+      "SuperNatural",
+      "Fiction",
+      "Drama",
+      "Gothic"
+    ],
+    "authorId": "4"
+}
+
+### Get author books
+GET http://localhost:3000/authors/670d18f27becadc28f0e1add/books
+
+
+### PUT author
+PUT http://localhost:3000/authors/670fd1dad71d18cea60a6f38 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Luis",
+    "lastName": "King",
+    "birthday": "21/09/47",
+    "favoriteGenders": [
+      "Horror",
+      "Fantasy",
+      "SuperNatural",
+      "Fiction",
+      "Drama",
+      "Gothic"
+    ],
+    "authorId": "4"
+}
+### DELETE author
+DELETE http://localhost:3000/authors/670fd1dad71d18cea60a6f38 HTTP/1.1
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Book testing
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+### GET all books
+GET http://localhost:3000/books
+
+### GET a single book
+GET http://localhost:3000/books/670d26f97becadc28f0e1ae4
+
+### Create a new book
+POST http://localhost:3000/books HTTP/1.1
+content-type: application/json
+
+{
+    "_id": "670d26f97becadc28f0e1ae4",
+    "name": "Les Miserablessss",
+    "genders": [
+        "Fiction",
+        "France",
+        "Historical Fiction",
+        "French Literature",
+        "Novels"
+    ],
+    "publishedDate": "1862",
+    "summary": "Victor Hugo's tale of injustice, heroism and love follows the fortunes of Jean Valjean, an escaped convict determined to put his criminal past behind him. But his attempts to become a respected member of the community are constantly put under threat: by his own conscience, when, owing to a case of mistaken identity, another man is arrested in his place; and by the relentless investigations of the dogged Inspector Javert. It is not simply for himself that Valjean must stay free, however, for he has sworn to protect the baby daughter of Fantine, driven to prostitution by poverty.",
+    "pages": "1463",
+    "reviews": [
+        "Les Misérables is a French historical novel by Victor Hugo, first published in 1862, that is considered one of the greatest novels of the 19th century.",
+        "Jamás he leído nada igual. Ni lo haré. Ya sé que eso suena exagerado, pero sé perfectamente que no leeré nada tan bueno de nuevo. Los Miserables está a un nivel que solo Victor Hugo puede llegar a tocar.",
+        "I saw the movie version of this before reading it and I was utterly shook by the powerful nature of the story. When I read it I hoped for the same experience, instead I had one more powerful. In life there are few truly great men: there are few men that are truly and incorruptibly good. Jean Valjean is such a man; he is a paragon of goodliness: he is a superb character."
+    ],
+    "authorId": "5"
+}
+
+### Update a book
+PUT http://localhost:3000/books/670fd6ccfdf5d2c1d6f712b3 HTTP/1.1
+content-type: application/json
+
+{
+    "_id": "670d26f97becadc28f0e1ae4",
+    "name": "Lossss Miserables",
+    "genders": [
+        "Fiction",
+        "France",
+        "Historical Fiction",
+        "French Literature",
+        "Novels"
+    ],
+    "publishedDate": "1862",
+    "summary": "Victor Hugo's tale of injustice, heroism and love follows the fortunes of Jean Valjean, an escaped convict determined to put his criminal past behind him. But his attempts to become a respected member of the community are constantly put under threat: by his own conscience, when, owing to a case of mistaken identity, another man is arrested in his place; and by the relentless investigations of the dogged Inspector Javert. It is not simply for himself that Valjean must stay free, however, for he has sworn to protect the baby daughter of Fantine, driven to prostitution by poverty.",
+    "pages": "1463",
+    "reviews": [
+        "Les Misérables is a French historical novel by Victor Hugo, first published in 1862, that is considered one of the greatest novels of the 19th century.",
+        "Jamás he leído nada igual. Ni lo haré. Ya sé que eso suena exagerado, pero sé perfectamente que no leeré nada tan bueno de nuevo. Los Miserables está a un nivel que solo Victor Hugo puede llegar a tocar.",
+        "I saw the movie version of this before reading it and I was utterly shook by the powerful nature of the story. When I read it I hoped for the same experience, instead I had one more powerful. In life there are few truly great men: there are few men that are truly and incorruptibly good. Jean Valjean is such a man; he is a paragon of goodliness: he is a superb character."
+    ],
+    "authorId": "2"
+}
+
+### Delete a book
+DELETE http://localhost:3000/books/670fd6ccfdf5d2c1d6f712b3 HTTP/1.1
