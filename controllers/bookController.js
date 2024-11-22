@@ -4,8 +4,15 @@ const ObjectId = require('mongodb').ObjectId;
 const getAllBooks = async (req, res) => {
   const result = await mongodb.getDb().db().collection('books').find();
   result.toArray().then((books) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(books);
+    if (books.length === 0) {
+      console.log(books);
+      res.setHeader('Content-Type', 'application/json');
+      res.status(400).json('There are not any book');
+    } else {
+      console.log(books);
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).json(books);
+    }
   });
 };
 
@@ -17,8 +24,15 @@ const getSingleBook = async (req, res) => {
     .collection('books')
     .find({ _id: bookId });
   result.toArray().then((book) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(book);
+    if (book.length === 0) {
+      console.log(book);
+      res.setHeader('Content-Type', 'application/json');
+      res.status(400).json('The ID is not valid');
+    } else {
+      console.log(book);
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).json(book);
+    }
   });
 };
 

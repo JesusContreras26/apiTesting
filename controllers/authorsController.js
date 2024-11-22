@@ -4,8 +4,15 @@ const ObjectId = require('mongodb').ObjectId;
 const getAll = async (req, res) => {
   const result = await mongodb.getDb().db().collection('authors').find();
   result.toArray().then((authors) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(authors);
+    if (authors.length === 0) {
+      console.log(authors);
+      res.setHeader('Content-Type', 'application/json');
+      res.status(400).json('There are not any author');
+    } else {
+      console.log(authors);
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).json(authors);
+    }
   });
 };
 
@@ -17,8 +24,15 @@ const getAuthorById = async (req, res) => {
     .collection('authors')
     .find({ _id: userId });
   result.toArray().then((author) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(author);
+    if (author.length === 0) {
+      console.log(author);
+      res.setHeader('Content-Type', 'application/json');
+      res.status(400).json('The ID is not valid');
+    } else {
+      console.log(author);
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).json(author);
+    }
   });
 };
 
